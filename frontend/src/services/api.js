@@ -19,14 +19,20 @@ export const getGenres = async () => {
     return data.genres;
 }
 
-export const getMovieDetails = async(movie_id) => {
-    const response = await fetch(`${BASE_URL}/movie/${movie_id}?api_key=${API_KEY}&language=en`)
+export const getPopularActors = async() => {
+    const response = await fetch(`${BASE_URL}/person/popular?api_key=${API_KEY}&language=en&page=1`)
     const data = await response.json();
     return data.results;
 }
 
-export const getPopularActors = async() => {
-    const response = await fetch(`${BASE_URL}/person/popular?api_key=${API_KEY}&language=en&page=1`)
+export const searchActors = async (query) => {
+    const response = await fetch(`${BASE_URL}/search/person?api_key=${API_KEY}&query=${encodeURIComponent(query)}&page=1`)
+    const data = await response.json();
+    return data.results;
+}
+
+export const getMovieDetails = async(movie_id) => {
+    const response = await fetch(`${BASE_URL}/movie/${movie_id}?api_key=${API_KEY}&language=en`)
     const data = await response.json();
     return data.results;
 }

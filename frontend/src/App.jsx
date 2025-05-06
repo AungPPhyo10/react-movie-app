@@ -1,8 +1,9 @@
 import './css/App.css'
 import Favourites from './pages/Favourites'
 import Home from './pages/Home'
-import {Routes, Route} from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Actors from './pages/Actors'
+import {Routes, Route} from 'react-router-dom'
 import {MovieProvider} from './contexts/MovieContext'
 /**
 If named export => use {MovieCard} to import
@@ -17,7 +18,8 @@ function App() {
       <main className="main-content">
       <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/favourites" element={<Favourites />} />
+          <Route path="/actors" element={<Actors/>} />
+          <Route path="/favourites" element={<Favourites/>} />
       </Routes>
       </main>
     </MovieProvider>
