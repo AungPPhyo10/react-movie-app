@@ -1,0 +1,16 @@
+/* style={{ display: 'inline-block', margin: '10px' , padding: '10px', color:'grey'}} */
+.genre-card {
+    display:inline-flex;
+    margin:10px;
+    padding:10px;
+    border:2px double white;
+    border-radius: 5px;
+}
+
+.genre-card:hover {
+    transform:scale(1.1,1.1);
+}
+
+.genre-card>p {
+    align-content: center;
+}

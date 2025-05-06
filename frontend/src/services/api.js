@@ -12,3 +12,21 @@ export const searchMovies = async (query) => {
     const data = await response.json();
     return data.results;
 }
+
+export const getGenres = async () => {
+    const response = await fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en`)
+    const data = await response.json();
+    return data.genres;
+}
+
+export const getMovieDetails = async(movie_id) => {
+    const response = await fetch(`${BASE_URL}/movie/${movie_id}?api_key=${API_KEY}&language=en`)
+    const data = await response.json();
+    return data.results;
+}
+
+export const getPopularActors = async() => {
+    const response = await fetch(`${BASE_URL}/person/popular?api_key=${API_KEY}&language=en&page=1`)
+    const data = await response.json();
+    return data.results;
+}

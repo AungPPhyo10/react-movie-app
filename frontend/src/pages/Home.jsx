@@ -1,5 +1,6 @@
 import MovieCard from '../components/MovieCard';
-import {searchMovies, getPopularMovies} from "../services/api.js";
+import GenreCard from '../components/GenreCard';
+import {searchMovies, getPopularMovies, getGenres} from "../services/api.js";
 import {useState, useEffect} from "react";     // State = live memory of component, updates UI(renders) whenever there's a change
 import '../css/Home.css'
 
@@ -7,6 +8,7 @@ function Home () {
     // searchQuery=current value , setSearchQuery=function to update memory
     const [searchQuery, setSearchQuery] = useState("");
     const [movies, setMovies] = useState([]);        // state to store fetched movie data
+    const [genres, setGenres] = useState([]);        // state to store fetched genres
     const [error, setError] = useState(null);        // state to store error   
     const [loading, setLoading] = useState(true);    // state to store loading status
 
@@ -28,6 +30,20 @@ function Home () {
     }, [])      // empty array - run this effect only once when the component mounts    
     // ***** Preserve the movie data array and display its data unless there's a state change ******
 
+    useEffect(() => {
+        const loadGenres = async() => {
+            try {
+                const genreList = await getGenres()
+                setGenres(genreList);
+            } catch (err) {
+                console.log(err)
+                setError("Failed to load genres");
+            } finally {
+                setLoading(false);
+            }
+        }
+        loadGenres();
+    }, [])
 
     const handleSearch = async (e) => {
         e.preventDefault();     // disables auto refresh when submitting form
@@ -69,7 +85,18 @@ function Home () {
                         )
                     )} 
                 </div>
-            }      
+            }
+
+            <br/>  
+            <hr/>
+            <br/>
+            
+            <div className="genre-row">
+            <h2 align="center">Movie Genres</h2>
+            {genres.map((genre) => (
+                <GenreCard key={genre.id} genre={genre} />
+            ))}
+            </div>
         </div>
     );
 }
