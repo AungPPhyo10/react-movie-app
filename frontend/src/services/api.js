@@ -34,5 +34,5 @@ export const searchActors = async (query) => {
 export const getMovieDetails = async(movie_id) => {
     const response = await fetch(`${BASE_URL}/movie/${movie_id}?api_key=${API_KEY}&language=en`)
     const data = await response.json();
-    return data.results;
+    return data;
 }

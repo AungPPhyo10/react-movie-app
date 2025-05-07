@@ -1,0 +1,83 @@
+.movie-details {
+    padding: 30px;
+    color: white;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .back-button {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #ffffff;
+    background-color: #094be5;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  
+  .details-content {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .image-side {
+    flex: 1;
+    max-width: 500px;
+  }
+  
+  .image-side img {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.7);
+  }
+  
+  .tagline {
+    font-style: italic;
+    color: #aaa;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .info-side {
+    flex: 2;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .info-side h2 {
+    font-size: 2rem;
+    color: #f0f0f0;
+    margin-bottom: 10px;
+  }
+  
+  .info-side p, .info-side li {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.5;
+  }
+  
+  .info-side ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .link-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #094be5;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    width: fit-content;
+  }
+
+  
