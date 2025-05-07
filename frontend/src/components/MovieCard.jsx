@@ -1,5 +1,6 @@
 import '../css/MovieCard.css'
 import {useMovieContext} from "../contexts/MovieContext"
+import {Link} from 'react-router-dom'
 
 function MovieCard({movie}) {
     const {addToFavourites, removeFromFavourites, isFavourite} = useMovieContext()
@@ -26,6 +27,7 @@ function MovieCard({movie}) {
         <div className="movie-info">
             <h3>{movie.title}</h3>
             <p>Released : {movie.release_date?.split("-")[0]}</p>
+            <Link className="movie-link" to={`/movie/${movie.id}`}>More Info ➪</Link>
         </div>
     </div>
    ); 

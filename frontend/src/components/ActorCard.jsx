@@ -5,9 +5,11 @@ function ActorCard({actor}) {
     const gender_status = actor.gender == 2 ? "Male" : "Female";
     const movies = actor.known_for;
     const actor_movies = [];
-    for (let i=0; i<movies.length; i++) {
-        actor_movies.push(movies[i].title);
-    }
+    if (actor.known_for_department == "Acting") {       // check whether actor or not
+        for (let i=0; i<movies.length; i++) {
+            actor_movies.push(movies[i].title);
+        }
+    }  
 
     return (
         <div className="actor-card">

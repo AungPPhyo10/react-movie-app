@@ -101,6 +101,12 @@
   font-size: 0.9rem;
 }
 
+.movie-link {
+  text-decoration: underline;
+  padding: 10px;
+  font-weight:bold;
+}
+
 .user-rating {
   color: #ffd700;
   font-size: 0.9rem;

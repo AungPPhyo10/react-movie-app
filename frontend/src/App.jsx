@@ -3,6 +3,7 @@ import Favourites from './pages/Favourites'
 import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import Actors from './pages/Actors'
+import MovieDetails from './pages/MovieDetails'
 import {Routes, Route} from 'react-router-dom'
 import {MovieProvider} from './contexts/MovieContext'
 /**
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/actors" element={<Actors/>} />
           <Route path="/favourites" element={<Favourites/>} />
+          <Route path="/movie/:id" element={<MovieDetails/>} />
       </Routes>
       </main>
     </MovieProvider>
