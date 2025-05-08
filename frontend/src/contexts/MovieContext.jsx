@@ -37,7 +37,8 @@ export const MovieProvider = ({children}) => {
         removeFromFavourites,
         isFavourite
     }
-
+    
+    // pass the favourites array and context functions
     return <MovieContext.Provider value={value}>
         {children}
     </MovieContext.Provider>

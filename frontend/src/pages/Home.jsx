@@ -1,7 +1,7 @@
 import MovieCard from '../components/MovieCard';
 import GenreCard from '../components/GenreCard';
 import {searchMovies, getPopularMovies, getGenres} from "../services/api.js";
-import {useState, useEffect} from "react";     // State = live memory of component, updates UI(renders) whenever there's a change
+import {useState, useEffect, useRef} from "react";     // State = live memory of component, updates UI(renders) whenever there's a change
 import '../css/Home.css'
 
 function Home () {
@@ -11,8 +11,9 @@ function Home () {
     const [genres, setGenres] = useState([]);        // state to store fetched genres
     const [error, setError] = useState(null);        // state to store error   
     const [loading, setLoading] = useState(true);    // state to store loading status
+    const lastSearch = useRef("");
 
-    // useEffect allows to add side effects to components and define when they should run
+    // useEffect allows to add side effects to components and define when they should run, like setTimeOut, calling APIs
     // run the function once the component mounts
     useEffect(() => {
         const loadPopularMovies = async () => {
@@ -51,6 +52,7 @@ function Home () {
         if (!searchQuery.trim()) return;
         if (loading) return;        // does not allow double search
         setLoading(true);           // set loading status to true again
+        lastSearch.current = searchQuery;
 
         try {
             const searchResults = await searchMovies(searchQuery)
@@ -64,6 +66,7 @@ function Home () {
         }
 
         // setSearchQuery("------");    // can set the search bar to empty at last
+    
     }
 
     return (
@@ -73,6 +76,7 @@ function Home () {
                 value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}/>
                 <button type="submit" className="search-button">Search</button>
             </form>
+            <p className="last-search">Last Searched : {lastSearch.current}</p>
 
             {error && <div className="error-message">{error}</div>}
 
