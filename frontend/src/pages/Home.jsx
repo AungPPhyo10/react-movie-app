@@ -11,7 +11,7 @@ function Home () {
     const [genres, setGenres] = useState([]);        // state to store fetched genres
     const [error, setError] = useState(null);        // state to store error   
     const [loading, setLoading] = useState(true);    // state to store loading status
-    const lastSearch = useRef("");
+    const lastSearch = useRef("");                   // persist value between renders, DOES NOT cause render
 
     // useEffect allows to add side effects to components and define when they should run, like setTimeOut, calling APIs
     // run the function once the component mounts
@@ -109,4 +109,7 @@ export default Home;
 
 /** NOTES :
 - React only re-renders only when there's a state change
+- useEffect is used to run side effects(react to changes) like
+fetching data, setting up event listeners, interacting with DOM, timers, etc
+- 
 */

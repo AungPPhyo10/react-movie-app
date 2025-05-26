@@ -1,20 +1,21 @@
 import {createContext, useState, useContext, useEffect} from "react"
 
-const MovieContext = createContext()
+const MovieContext = createContext();       // create context syntax
 
-export const useMovieContext = () => useContext(MovieContext)
+export const useMovieContext = () => useContext(MovieContext)       // use context, this will be used around components
 
 // provide state to any of the component that are wrapped around it
 export const MovieProvider = ({children}) => {
     const [favourites, setFavourites] = useState([])
 
-    // whenever favourites state changes, update local storage favourites as well
+    // on first load, fetch saved favourites from local storage and set state
     useEffect(() => {
         const storedFavs = localStorage.getItem("favourites")
 
         if (storedFavs) setFavourites(JSON.parse(storedFavs))
-    }, [])
+    }, [])      // empty array = no dependencies
 
+    // run everytime 'favourites' state changes, syncs with localStorage
     useEffect(() => {
         localStorage.setItem('favourites', JSON.stringify(favourites))
     }, [favourites])

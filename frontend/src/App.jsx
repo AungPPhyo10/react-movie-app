@@ -14,7 +14,8 @@ If default export => use MovieCard to import
 function App() {
 
   return (
-    <MovieProvider>
+    // wrap around the MovieProvider context to pass states
+    <MovieProvider>   
       <Navbar />
       <main className="main-content">
       <Routes>
