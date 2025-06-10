@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import Actors from './pages/Actors'
 import MovieDetails from './pages/MovieDetails'
+import Usecontext from './pages/Usecontext'
 import {Routes, Route} from 'react-router-dom'
 import {MovieProvider} from './contexts/MovieContext'
 /**
@@ -23,6 +24,7 @@ function App() {
           <Route path="/actors" element={<Actors/>} />
           <Route path="/favourites" element={<Favourites/>} />
           <Route path="/movie/:id" element={<MovieDetails/>} />
+          <Route path="/usecontext/*" element={<Usecontext/>} />
       </Routes>
       </main>
     </MovieProvider>
